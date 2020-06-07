@@ -129,10 +129,6 @@ public:
 };
 
 int main() {
-	//auto pred = std::greater<int>();
-	//bool b = pred(5, 4);
-	//printf("%d\n", b);
-	//return 0;
 
 	vector<int> v{ 4, 9, 11, 7, 5, 3 };
 	BinaryHeapExt<int, std::less<int>> heap (v);
