@@ -112,7 +112,7 @@ public:
 			max = std::numeric_limits<T>::max();
 		else {
 			max = _heap[0] < _heap[1] ? std::numeric_limits<T>::max()
-																: std::numeric_limits<T>::min();
+						  : std::numeric_limits<T>::min();
 		}
 
 		_heap.push_back(max);
