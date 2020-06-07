@@ -5,7 +5,6 @@
 #include <numeric>
 #include <vector>
 #include <unordered_map>
-#include <map>
 
 using namespace std;
 
@@ -13,7 +12,7 @@ template <typename T, class Pred=std::less<T>>
 class BinaryHeapExt {
 	static_assert(std::is_arithmetic<T>::value, "Not numeric!!");
 private:
-	std::map<T, size_t> _map;
+	std::unordered_map<T, size_t> _map;
 	std::vector<T> _heap;
 
 	size_t getLeftChildPos(size_t pos) const { return 2 * pos + 1; }
