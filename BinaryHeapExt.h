@@ -7,11 +7,11 @@
 
 using namespace std;
 
-template <typename T, class Pred = std::less<T>>
+template <typename T, class Pred = std::less<T>, class Hash = std::hash<T>, class KeyEqual = std::equal_to<T>>
 class BinaryHeapExt {
 	/*static_assert(std::is_arithmetic<T>::value, "Not numeric!!");*/
 private:
-	std::unordered_map<T, size_t> _map;
+	std::unordered_map<T, size_t, Hash, KeyEqual> _map;
 	std::vector<T> _heap;
 
 	static size_t getLeftChildPos(size_t pos) { return 2 * pos + 1; }
