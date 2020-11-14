@@ -18,29 +18,25 @@ struct hash_pair {
 
 int main() {
 
-	//vector<int> v{ 4, 9, 11, 7, 5, 3 };
-	//BinaryHeapExt<int, std::less<>> heap (v);
+	// some test code
+	vector<int> v{ 4, 9, 11, 7, 5, 3 };
+	BinaryHeapExt<int, std::less<>> heap (v);
 
-	//const auto minItem = heap.getExtremum();
-	//printf("%d\n", minItem);
-
-	//auto str = heap.toString();
-	//printf("%s\n", str.c_str());
-	//
-	//heap.addKey(2);
-	//str = heap.toString();
-	//printf("%s\n", str.c_str());
-
-	std::function<size_t> a;
-
-	vector<pair<size_t, size_t>> v{ {4, 0}, {1, 4}, {4, 2}, {3, 1}, {9, 3} };
-	const auto hashFun = std::function<pair<bool, size_t, size_t>&>([](const pair<size_t, size_t>& p)
-		{ return (bool)(hash<size_t>{}(p.first) ^ hash<size_t>{}(p.second)); });
-
-	BinaryHeapExt<SzPair, std::less<>, hash_pair> heap(v);
 	const auto minItem = heap.getExtremum();
+	printf("%d\n", minItem);
 
-	printf("%zu - %zu\n", minItem.first, minItem.second);
+	auto str = heap.toString();
+	printf("%s\n", str.c_str());
+	
+	heap.addKey(2);
+	str = heap.toString();
+	printf("%s\n", str.c_str());
+
+	vector<pair<size_t, size_t>> vPairs { {4, 2}, {1, 4}, {4, 0}, {3, 1}, {9, 3} };
+	BinaryHeapExt<SzPair, std::less<>, hash_pair> heapPairs(vPairs);
+	const auto minPair = heapPairs.getExtremum();
+
+	printf("%zu - %zu\n", minPair.first, minPair.second);
 
 	return 0;
 }
